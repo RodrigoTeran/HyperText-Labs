@@ -1,0 +1,8 @@
+npm uninstall node-sass
+npm i node-sass@4.14.1
+
+const spring = {
+  type: "spring",
+  damping: 10,
+  stiffness: 100
+}
