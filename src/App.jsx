@@ -28,7 +28,7 @@ const App = () => {
               }}
             >
               <Link to="/">
-                <a>Ir a inicio</a>
+                Ir a inicio
               </Link>
             </motion.div>
           </Route>
