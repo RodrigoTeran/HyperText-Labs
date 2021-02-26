@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+// Hooks
 import {
   variantsLoading,
   variantsListaPokemones,
   variantsListaPokemonesColumn,
 } from "./variants";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 const App = () => {
@@ -26,9 +28,9 @@ const App = () => {
           <motion.div
             variants={variantsLoading}
             key="1"
-            exit="exit"
-            animate="visible"
-            initial="hidden"
+            exit="exit" // se quita
+            animate="visible" // entra
+            initial="hidden" // inicial 
             className="loading"
           >
             Cargando...
