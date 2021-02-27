@@ -1,6 +1,6 @@
 import React from "react";
 import ListaPokemones from "./Components/ListaPokemones";
-import { Switch, Route, Link, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <>
-      <div>menu</div>
+      <div className="menu">HYPER POKEMON</div>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route exact path="/">
@@ -20,16 +20,9 @@ const App = () => {
             <motion.div
               exit={{
                 opacity: 0,
-                scale: 0.5,
-                transition: {
-                  duration: 1,
-                  delay: 1,
-                },
               }}
             >
-              <Link to="/">
-                Ir a inicio
-              </Link>
+              <Redirect to="/"></Redirect>
             </motion.div>
           </Route>
         </Switch>

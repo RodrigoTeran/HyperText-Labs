@@ -12,7 +12,7 @@ const App = () => {
   const [pokemones, cambiarPokemones] = useState([]);
   useEffect(() => {
     // https://pokeres.bastionbot.org/images/pokemon/1.png
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=50")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=12")
       .then((response) => {
         return response.json();
       })
