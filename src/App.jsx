@@ -10,6 +10,9 @@ const App = () => {
   return (
     <>
       <div className="menu">HYPER POKEMON</div>
+
+
+
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route exact path="/">
