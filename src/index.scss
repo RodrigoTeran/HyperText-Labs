@@ -1,12 +1,21 @@
+
+
+
+h4 {
+  background-color: lightseagreen !important;
+}
+
+
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  &::selection{
+  &::selection {
     background-color: hotpink;
     color: ivory;
   }
-
 }
 
 body {
@@ -25,6 +34,8 @@ body {
   justify-content: center;
 }
 
+// CSS = Casacade Styling Sheets
+
 
 .h1__wrapper {
   display: flex;
@@ -32,6 +43,47 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.notAppear2 {
+  height: 200px;
+  background-color: rgb(231, 227, 203);
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 10px;
+  transition: opacity ease-in-out .3s, transform ease-in-out .3s;
+}
+.notAppear {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+
+#h4 {
+  background-color: mediumvioletred;
+}
+
+h4[atributonsnisfo="h4"] {
+  background-color: rgb(92, 201, 205);
+}
+
+.h4 {
+  background-color: hotpink;
+}
+
+h4 {
+  background-color: red;
+}
+
+
+
+//  ! important
+//  estilos en linea
+//  id
+// selectores   h4[selector="hola]
+// class
+// h4 p div a
+
+
 
 h1 {
   text-align: center;
@@ -43,7 +95,11 @@ h1 {
   border-radius: 5px;
   width: fit-content;
 
+  border: 2px solid red;
+
   position: relative;
+
+  // z-index: 3;
 
   // Pseudo selectores
   &:hover {
@@ -54,23 +110,38 @@ h1 {
   }
 
   // Pseudo elementos
-  &::first-letter{
+  &::first-letter {
     color: red;
   }
 
   &::after {
     content: "";
-    z-index: 1;
+    z-index: 0;
     position: absolute;
     bottom: -50px;
     left: 60%;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
 
     border-bottom: 25px solid transparent;
     border-top: 25px solid rgb(241, 212, 212);;
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
+  }
+
+  &::before {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    bottom: -53px;
+    left: calc(60% - 5px);
+    width: 0;
+    height: 0;
+
+    border-bottom: 25px solid transparent;
+    border-top: 30px solid red;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
   }
 }
 
@@ -85,8 +156,7 @@ h1 {
   left: 0px;
   z-index: 100000;
 
-
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   height: 75px;
   padding: 0px 0px 0px 30px;
@@ -166,3 +236,6 @@ h1 {
     }
   }
 }
+
+
+@import "./estilo";

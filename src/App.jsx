@@ -1,5 +1,9 @@
 import React from "react";
+
 import ListaPokemones from "./Components/ListaPokemones";
+import Animaciones from "./Components/Animaciones";
+import Co from "./Components/Co";
+
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,7 +14,8 @@ const App = () => {
   return (
     <>
       <div className="menu">HYPER POKEMON</div>
-
+      <Animaciones></Animaciones>
+      <Co></Co>
 
 
       <AnimatePresence exitBeforeEnter>

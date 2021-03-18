@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 // Hooks
 
 import {
@@ -9,12 +9,20 @@ import {
 
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const App = () => {
   const referenciaDelH1 = useRef(null);
 
+  const [value, setValue] = useState(0);
+
   const [pokemones, cambiarPokemones] = useState([]);
 
+  const miFuncion = () => {
+    console.log("hola")
+  };
+
   useEffect(() => {
+    // casi siempre
     // Antes
     // https://pokeres.bastionbot.org/images/pokemon/1.png
 
@@ -23,12 +31,27 @@ const App = () => {
         return response.json();
       })
       .then((data) => {
-        cambiarPokemones(data.results);
+        cambiarPokemones(data.results)
       });
   }, []);
 
+  useLayoutEffect(() => {
+    if (value === 0) {
+      setValue(10 + Math.random() * 200);
+    }
+  }, [value]);
+
   return (
     <header>
+      <div onClick={() => setValue(0)}>value: {value}</div>
+      <div onClick={miFuncion}>click</div>
+
+      {/* <h4 style={{
+        backgroundColor: "yellow"
+      }} className="h4" id="h4" atributonsnisfo="h4">
+        hola que tal
+      </h4> */}
+
       <AnimatePresence exitBeforeEnter>
         {pokemones.length === 0 ? (
           <motion.div
@@ -47,8 +70,12 @@ const App = () => {
             animate="visible"
             initial="hidden"
             className="h1__wrapper"
+            id="h1_wrapper"
           >
-            <motion.h1 variants={variantsListaPokemonesColumn} ref={referenciaDelH1}>
+            <motion.h1
+              variants={variantsListaPokemonesColumn}
+              ref={referenciaDelH1}
+            >
               Pokemones
             </motion.h1>
             <button
