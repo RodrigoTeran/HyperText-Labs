@@ -20,7 +20,7 @@ const CreateAccount = () => {
   const [conditionalFetch, setConditionalFetch] = useState(false);
 
   useFetchCB(
-    "http://localhost:3354/signup",
+    `${process.env.REACT_APP_API_URL}/signup`,
     "POST",
     conditionalFetch,
     (data) => {

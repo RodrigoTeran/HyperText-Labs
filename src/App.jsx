@@ -16,7 +16,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   // GET POST PUT DELETE
-  const data = useFetch("http://localhost:3354/", "GET", setLoading);
+  const data = useFetch(process.env.REACT_APP_API_URL, "GET", setLoading);
   return (
     <>
       <Nav></Nav>
