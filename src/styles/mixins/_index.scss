@@ -1,0 +1,7 @@
+@mixin gradient-background-1-2-3() {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--terciary-color) 100%);
+}
+@mixin label-input-text-when-close() {
+  top: -0.6rem;
+  font-size: 0.8rem;
+}

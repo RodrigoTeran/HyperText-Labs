@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #01c3cd;
+  --secondary-color: #3d79db;
+  --terciary-color: #7c2be9;
+
+  --black-menu-bg: #29303a;
+  --black: #000;
+
+  --white: #fff;
+  --white-3: #ddd;
+  --white-4: #eee;
+  --white-5: #999;
+  --white-6: #e5e5e5;
+  --white-7: #555;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+input,
+button {
+  outline: none;
+  border-style: none;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+// Imports
+@import "./mixins/index";
+@import "./forms/index";
+@import "./layout/index";
+@import "./pages/createAccount";
+@import "./pages/home";

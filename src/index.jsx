@@ -1,17 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-
-
-import "./index.scss";
-
-
-
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
-
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
+import "./styles/index.scss";
+import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,8 +12,14 @@ ReactDOM.render(
       <App></App>
     </Router>
   </React.StrictMode>,
-  document.getElementById("root2")
+  document.getElementById("root")
 );
 
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.unregister();
 reportWebVitals();
+
+// 1
+// create-react-app nombreDeLaApp --template cra-template-pwa
+
+// 2
+// npm install node-sass@4.14.1 react-router-dom react-helmet framer-motion
