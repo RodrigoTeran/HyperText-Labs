@@ -7,9 +7,14 @@
   position: sticky;
   top: 0;
   padding: 0 20px;
+
+  z-index: 2;
   @include gradient-background-1-2-3();
   font-weight: bold;
   &__column {
+    img {
+      width: 50px;
+    }
     &__link {
       &__right,
       &__left {

@@ -5,7 +5,17 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  
   &__content {
-    width: calc(100% - 100px);
+    // siempre
+    transform: translateX(0px);
+    transition: transform ease-in-out .3s;
+    width: 100%;
+
+    &.menuOpen {
+      transform: translateX(0px);
+    }
   }
 }

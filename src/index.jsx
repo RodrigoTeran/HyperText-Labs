@@ -21,5 +21,7 @@ reportWebVitals();
 // 1
 // create-react-app nombreDeLaApp --template cra-template-pwa
 
+// flags   git commit -m 
+
 // 2
 // npm install node-sass@4.14.1 react-router-dom react-helmet framer-motion

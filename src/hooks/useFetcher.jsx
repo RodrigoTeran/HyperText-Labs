@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 export const useFetch = (url, method, setLoader, body = null) => {
   const [data, setData] = useState([]);
 
+  
+
   useEffect(() => {
     if (!url) return;
 
@@ -18,7 +20,7 @@ export const useFetch = (url, method, setLoader, body = null) => {
           Accept: "application/json",
           Authorization: localStorage.getItem("token"),
         },
-      });      
+      });
       const data = await response.json();
       setData(data);
       setLoader(false);
@@ -29,6 +31,22 @@ export const useFetch = (url, method, setLoader, body = null) => {
 
   return data;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const useFetchCB = (
   url,

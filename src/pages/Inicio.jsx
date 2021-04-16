@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const Inicio = ({ texto }) => {
+import { GlobalContext } from "../App";
+
+const Inicio = () => {
+  const data = useContext(GlobalContext);
   return (
     <div className="home">
       <h1>HyperText</h1>
-      <span>{texto.auth ? texto.user.username : ""}</span>
+      <span>{data.globalData?.auth ? data.globalData?.user.username : "NEL"}</span>
     </div>
   );
 };

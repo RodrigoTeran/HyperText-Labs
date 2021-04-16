@@ -1,5 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import FormInput from "../components/Forms/FormInput";
+import { GlobalContext } from "../App";
+import { Redirect } from "react-router-dom";
 
 // Hook
 import { useFetchCB } from "../hooks/useFetcher";
@@ -9,8 +11,12 @@ const CreateAccount = () => {
   const [valuePassword, setPassword] = useState("");
   const [valueUsername, setUsername] = useState("");
 
+  const globalData = useContext(GlobalContext);
+  const [isRedirect, setIsRedirect] = useState(false);
+
   // Fetching
   const [loading, setLoading] = useState(false);
+
   const bodyFetch = useRef({
     username: "",
     password: "",
@@ -29,17 +35,19 @@ const CreateAccount = () => {
     setLoading,
     bodyFetch.current
   );
+
   const handleSubmitCB = (data) => {
+    setConditionalFetch(false);
     console.log(data);
     if (data.accessToken) {
       localStorage.setItem("token", data.accessToken);
+      globalData.reFetchGlobalData();
+      setIsRedirect(true);
     }
-    setConditionalFetch(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     bodyFetch.current = {
       username: valueUsername,
       password: valuePassword,
@@ -50,6 +58,7 @@ const CreateAccount = () => {
   };
   return (
     <div className="createAccount">
+      {isRedirect ? <Redirect to="/"></Redirect> : null}
       <h1>Crear Cuenta</h1>
       <div className="createAccount__formContainer">
         <form action="" onSubmit={handleSubmit}>
