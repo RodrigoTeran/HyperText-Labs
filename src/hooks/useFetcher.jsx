@@ -2,14 +2,8 @@ import { useEffect, useState } from "react";
 
 export const useFetch = (url, method, setLoader, body = null) => {
   const [data, setData] = useState([]);
-
-  
-
   useEffect(() => {
     if (!url) return;
-
-    console.log(localStorage.getItem("token"))
-
     const fetchData = async () => {
       setLoader(true);
       const response = await fetch(url, {
@@ -31,22 +25,6 @@ export const useFetch = (url, method, setLoader, body = null) => {
 
   return data;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const useFetchCB = (
   url,

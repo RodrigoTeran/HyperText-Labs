@@ -5,3 +5,27 @@
   top: -0.6rem;
   font-size: 0.8rem;
 }
+@mixin rotate-loader($color: var(--white)) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  svg {
+    animation-name: animaLoader;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    fill: $color;
+    width: 30px;
+    height: 30px;
+  }
+}
+@keyframes animaLoader {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

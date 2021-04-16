@@ -8,20 +8,19 @@ import { variantsPages } from "../Variants/variantsPages";
 // Hook
 import { useFetchCB } from "../hooks/useFetcher";
 
-const CreateAccount = () => {
+const LogIn = () => {
   const [valueEmail, setEmail] = useState("");
   const [valuePassword, setPassword] = useState("");
-  const [valueUsername, setUsername] = useState("");
 
   const globalData = useContext(GlobalContext);
   const [isRedirect, setIsRedirect] = useState(false);
+
   const [APIMessage, setAPIMessage] = useState("");
 
   // Fetching
   const [loading, setLoading] = useState(false);
 
   const bodyFetch = useRef({
-    username: "",
     password: "",
     email: "",
   });
@@ -29,8 +28,8 @@ const CreateAccount = () => {
   const [conditionalFetch, setConditionalFetch] = useState(false);
 
   useFetchCB(
-    `${process.env.REACT_APP_API_URL}/signup`,
-    "POST",
+    `${process.env.REACT_APP_API_URL}/login`,
+    "PUT",
     conditionalFetch,
     (data) => {
       handleSubmitCB(data);
@@ -53,7 +52,6 @@ const CreateAccount = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     bodyFetch.current = {
-      username: valueUsername,
       password: valuePassword,
       email: valueEmail,
     };
@@ -69,16 +67,9 @@ const CreateAccount = () => {
       initial="hidden"
     >
       {isRedirect ? <Redirect to="/"></Redirect> : null}
-      <h1>Crear Cuenta</h1>
+      <h1>Iniciar Sesión</h1>
       <div className="createAccount__formContainer">
         <form action="" onSubmit={handleSubmit}>
-          <FormInput
-            id="createAccountInput__username"
-            text="Nombre de usuario"
-            inputValue={valueUsername}
-            setInputValue={setUsername}
-            type="text"
-          ></FormInput>
           <FormInput
             id="createAccountInput__email"
             text="Correo"
@@ -107,4 +98,4 @@ const CreateAccount = () => {
     </motion.div>
   );
 };
-export default CreateAccount;
+export default LogIn;

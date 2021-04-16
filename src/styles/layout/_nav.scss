@@ -7,13 +7,35 @@
   position: sticky;
   top: 0;
   padding: 0 20px;
+  font-size: 1.2rem;
 
   z-index: 2;
   @include gradient-background-1-2-3();
   font-weight: bold;
   &__column {
-    img {
-      width: 50px;
+    display: flex;
+    align-items: center;
+    span {
+      cursor: pointer;
+    }
+    &__loader {
+      @include rotate-loader();
+    }
+    &__image {
+      display: inline-block;
+      margin: 0 0 0 10px;
+      width: 35px;
+      height: 35px;
+      overflow: hidden;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--primary-color);
+      cursor: pointer;
+      img {
+        width: 80%;
+      }
     }
     &__link {
       &__right,

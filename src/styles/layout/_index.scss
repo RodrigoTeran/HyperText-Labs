@@ -1,21 +1,17 @@
 @import "./nav";
 @import "./menu";
 
-.layoutComlumns {
+.layoutColumns {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  position: relative;
-  z-index: 1;
-  
+
   &__content {
     // siempre
-    transform: translateX(0px);
-    transition: transform ease-in-out .3s;
-    width: 100%;
-
-    &.menuOpen {
-      transform: translateX(0px);
-    }
+    transition: transform ease-in-out 0.3s;
+    width: calc(100% - 100px);
   }
+}
+.layout__loader {
+  @include rotate-loader($color: var(--black));
 }
