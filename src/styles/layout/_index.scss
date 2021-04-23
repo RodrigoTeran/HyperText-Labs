@@ -11,6 +11,14 @@
     transition: transform ease-in-out 0.3s;
     width: calc(100% - 100px);
   }
+
+  @media screen and (max-width: 700px) { // 0 al 700px
+    flex-direction: column-reverse;
+
+    &__content {
+      width: 100%;
+    }
+  }
 }
 .layout__loader {
   @include rotate-loader($color: var(--black));

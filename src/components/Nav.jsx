@@ -11,6 +11,8 @@ const Nav = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isRedirect, setIsRedirect] = useState(false);
 
+  const [isNav, setNav] = useState(false);
+
   useFetchCB(
     `${process.env.REACT_APP_API_URL}/logout`,
     "PUT",
@@ -22,6 +24,7 @@ const Nav = () => {
   );
 
   const handleLogout = (_data) => {
+    setConditionalFetching(false);
     localStorage.removeItem("token");
     data.reFetchGlobalData();
     setIsRedirect(true);
@@ -35,8 +38,18 @@ const Nav = () => {
           HyperText
         </Link>
       </div>
-
-      <div className="nav__column">
+      <div
+        className="nav__column__dropdown"
+        onClick={() => {
+          console.log("xd")
+          setNav(!isNav);
+        }}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={`nav__column ${isNav ? "open" : ""}`}>
         <AnimatePresence exitBeforeEnter>
           {data.isLoading || isLoading ? (
             <motion.div
@@ -55,6 +68,7 @@ const Nav = () => {
             <>
               <motion.span
                 onClick={() => {
+                  setNav(false);
                   setConditionalFetching(true);
                 }}
                 className="nav__column__link__right"
