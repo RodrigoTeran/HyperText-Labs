@@ -57,3 +57,34 @@ export const useFetchCB = (
     fetchData();
   }, [url, method, body, conditional]);
 };
+
+export const useFetchImageCB = (
+  url,
+  method,
+  conditional,
+  callback,
+  setLoader,
+  body
+) => {
+  useEffect(() => {
+    if (!url) return;
+    if (!conditional) return;
+
+    const fetchData = async () => {
+      setLoader(true);
+      const response = await fetch(url, {
+        method,
+        body: body,
+        headers: {
+          Accept: "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+      const data = await response.json();
+      setLoader(false);
+      callback(data);
+    };
+
+    fetchData();
+  }, [url, method, body, conditional]);
+};

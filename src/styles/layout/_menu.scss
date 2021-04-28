@@ -1,8 +1,11 @@
 .menuLayout {
   width: 100px;
-  height: calc(100vh - 80px);
+  height: 100vh;
   background-color: var(--black-menu-bg);
   color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
 
   @media screen and (max-width: 700px) { // 0 al 700px
     width: 100%;
