@@ -11,6 +11,7 @@ const Inicio = () => {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const imageInput = useRef(null);
+  const imageRef = useRef(null);
 
   const bodyFetch = useRef(undefined);
 
@@ -94,22 +95,38 @@ const Inicio = () => {
               type="text"
             />
             <div>Imagen</div>
-            <input ref={imageInput} type="file" name="image" id="" />
+            <input
+              onChange={(e) => {
+                let reader = new FileReader();
+                reader.readAsDataURL(e.target.files[0]);
+
+                // Le decimos que cuando este listo ejecute el código interno
+                reader.onload = function () {
+                  imageRef.current.src = reader.result;
+                };
+              }}
+              ref={imageInput}
+              type="file"
+              name="image"
+              id=""
+            />
+            <br />
+            <img ref={imageRef} src="" alt="" />
             <br />
             <button onClick={crearPost}>Crear post</button>
             <h2 style={{ marginTop: "50px", marginBottom: "50px" }}>POSTS</h2>
             <div className="home__posts">
-            {posts.map((post, index) => {
-              return (
-                <div key={index} className="home__post">
-                  <h4>{post.username}</h4>
-                  <h5>{post.title}</h5>
-                  <p>{post.description}</p>
-                  <br />
-                  <img src={post.image} alt="" />
-                </div>
-              );
-            })}
+              {posts.map((post, index) => {
+                return (
+                  <div key={index} className="home__post">
+                    <h4>{post.username}</h4>
+                    <h5>{post.title}</h5>
+                    <p>{post.description}</p>
+                    <br />
+                    <img src={post.image} alt="" />
+                  </div>
+                );
+              })}
             </div>
           </div>
         ) : (
